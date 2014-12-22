@@ -23,6 +23,20 @@ Template.showCandle.events({
   },
 });
 
+Template.showCandle.rendered = function () {
+  this.$('[data-model].editable').editable({
+    display: false,
+    success: function (response, newValue) {
+      var _id = $(this).closest('.candle').data('id');
+      var field = $(this).data('model');
+
+      var data = {};
+      data[field] = newValue;
+      Candles.update(_id, { $set: data });
+    },
+  });
+};
+
 
 Template.addCandle.helpers({
   waxTypes: function () {

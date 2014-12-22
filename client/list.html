@@ -12,20 +12,23 @@
 </template>
 
 <template name="showCandle">
-  <div class="media">
+  <div class="candle media" data-id="{{_id}}">
     <a class="media-left">
       <img src="{{candleImg}}" alt="A {{type}} candle" width="128">
     </a>
     <div class="media-body">
       <h3 class="media-heading">
-        {{scent}}
-        <small>{{brand}}</small>
+        <span data-model="scent" class="editable" data-type="text" data-title="Candle scent">{{scent}}</span>
+        <small>
+          <span data-model="brand" class="editable" data-type="text" data-title="Candle brand">{{brand}}</span>
+        </small>
       </h3>
       <p>
-        {{#if size}}
-          {{size}} oz
-        {{/if}}
-        {{wax}} {{type}} candle
+        <span data-model="size" class="editable" data-type="number" data-title="Candle size">{{size}}</span>
+        oz
+        <span data-model="wax" class="editable" data-type="text" data-title="Wax type">{{wax}}</span>
+        <span data-model="type" class="editable" data-type="text" data-title="Candle type">{{type}}</span>
+        candle
       </p>
       <p>
         Burned
