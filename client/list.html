@@ -1,0 +1,29 @@
+<template name="candleList">
+  <h3>My candles</h3>
+
+  {{#each candles}}
+  {{> showCandle}}
+  {{/each}}
+
+  {{#unless hasCandles}}
+  <p>You don't have any candles added yet!</p>
+  <p>Add one now :)</p>
+  {{/unless}}
+</template>
+
+<template name="showCandle">
+  <div class="media">
+    <a class="media-left">
+      <img src="{{candleImg}}" alt="A {{type}} candle" width="128">
+    </a>
+    <div class="media-body">
+      <h3 class="media-heading">{{scent}} <small>{{brand}}</small></h3>
+      <p>
+        {{#if size}}
+        {{size}} oz
+        {{/if}}
+        {{wax}} {{type}} candle
+      </p>
+    </div>
+  </div>
+</template>

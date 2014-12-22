@@ -1,0 +1,42 @@
+<template name="addCandle">
+  <h3>Add a candle</h3>
+  <form role="form">
+    <div class="form-group">
+      <label for="brand">Brand</label>
+      <input type="text" class="form-control" id="brand" placeholder="Enter brand">
+    </div>
+    <div class="form-group">
+      <label for="scent">Scent</label>
+      <input type="text" class="form-control" id="scent" placeholder="Enter scent">
+    </div>
+    <div class="form-group">
+      <label for="wax">Wax type</label>
+      <select class="form-control" id="wax">
+        {{#each waxTypes}}
+        <option>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="size">Size</label>
+      <div class="input-group">
+        <input type="number" class="form-control" id="size" placeholder="Enter size in ounces">
+        <span class="input-group-addon">oz</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Candle type</label>
+      <select class="form-control" id="type">
+        {{#each candleTypes}}
+        <option>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <!--div class="checkbox">
+    <label>
+    <input type="checkbox" id="unburned"> Unburned (new)
+  </label>
+</div-->
+<button type="submit" class="btn btn-default">Add</button>
+</form>
+</template>

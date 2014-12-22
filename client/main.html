@@ -1,0 +1,41 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wickwise</title>
+</head>
+
+<body>
+  <div class="container">
+    {{#if currentUser}}
+    <div class="pull-right" style="padding: 10px;">
+      {{> loginButtons}}
+    </div>
+    {{/if}}
+
+    <h1>Wickwise</h1>
+
+    {{#if currentUser}}
+    <div class="row">
+      <div class="col-md-8">
+        {{> candleList}}
+      </div>
+      <div class="col-md-4">
+        {{> addCandle}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#unless currentUser}}
+      <div class="jumbotron">
+        <h1>Keep a handle on your candles</h1>
+        <p>
+          Wickwise keeps a listing of your favorite candles.
+          You can track how long or how often you burn each one and discover
+          which candle will fit your current mood.
+        </p>
+        <p>{{> loginButtons}}</p>
+      </div>
+    {{/unless}}
+  </div>
+</body>
