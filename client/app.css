@@ -1,1 +1,6 @@
-/* CSS declarations go here */
+.burn-count {
+  display: inline;
+  width: 75px;
+  height: auto;
+  padding: 3px 10px;
+}

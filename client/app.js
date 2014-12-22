@@ -8,11 +8,21 @@ Template.candleList.helpers({
   },
 });
 
+
 Template.showCandle.helpers({
   candleImg: function () {
     return '/images/' + this.type.split(' ')[0].toLowerCase() + '.png';
   },
-})
+});
+
+Template.showCandle.events({
+  'change .burn-count': function (event) {
+    Candles.update(this._id, { $set: {
+      burns: +event.target.value,
+    }});
+  },
+});
+
 
 Template.addCandle.helpers({
   waxTypes: function () {
