@@ -7,7 +7,7 @@
 meteor-platform
 autopublish
 insecure
-ian:accounts-ui-bootstrap-3
+accounts-ui
 twbs:bootstrap
 accounts-google
 force-ssl

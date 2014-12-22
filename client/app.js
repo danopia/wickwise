@@ -8,6 +8,22 @@ Template.candleList.helpers({
   },
 });
 
+Template.showCandle.helpers({
+  candleImg: function () {
+    return '/images/' + this.type.split(' ')[0].toLowerCase() + '.png';
+  },
+})
+
+Template.addCandle.helpers({
+  waxTypes: function () {
+    return WaxTypes;
+  },
+
+  candleTypes: function () {
+    return CandleTypes;
+  },
+});
+
 Template.addCandle.events({
   'submit form': function (event) {
     Candles.insert({

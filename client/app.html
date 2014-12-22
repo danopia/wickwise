@@ -7,13 +7,17 @@
 
 <body>
   <div class="container">
+    {{#if currentUser}}
+    <div class="pull-right" style="padding: 10px;">
+      {{> loginButtons}}
+    </div>
+    {{/if}}
+
     <h1>Wickwise</h1>
 
     {{#if currentUser}}
     <div class="row">
       <div class="col-md-8">
-        <p>{{> loginButtons}}</p>
-
         {{> candleList}}
       </div>
       <div class="col-md-4">
@@ -37,9 +41,12 @@
 </body>
 
 <template name="candleList">
+  <h3>My candles</h3>
+
   {{#each candles}}
     {{> showCandle}}
   {{/each}}
+
   {{#unless hasCandles}}
     <p>You don't have any candles added yet!</p>
     <p>Add one now :)</p>
@@ -47,20 +54,13 @@
 </template>
 
 <template name="showCandle">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <dl>
-        <dt>Brand</dt>
-        <dd>{{brand}}</dd>
-        <dt>Scent</dt>
-        <dd>{{scent}}</dd>
-        <dt>Wax type</dt>
-        <dd>{{wax}}</dd>
-        <dt>Size</dt>
-        <dd>{{size}} oz</dd>
-        <dt>Candle type</dt>
-        <dd>{{type}}</dd>
-      </dl>
+  <div class="media">
+    <a class="media-left">
+      <img src="{{candleImg}}" alt="A {{type}} candle" width="128">
+    </a>
+    <div class="media-body">
+      <h3 class="media-heading">{{scent}} <small>{{brand}}</small></h3>
+      <p>{{size}} oz {{wax}} {{type}} candle</p>
     </div>
   </div>
 </template>
@@ -78,7 +78,11 @@
     </div>
     <div class="form-group">
       <label for="wax">Wax type</label>
-      <input type="text" class="form-control" id="wax" placeholder="Enter wax type (soy, beeswax, etc.)">
+      <select class="form-control" id="wax">
+        {{#each waxTypes}}
+          <option>{{this}}</option>
+        {{/each}}
+      </select>
     </div>
     <div class="form-group">
       <label for="size">Size</label>
@@ -89,7 +93,11 @@
     </div>
     <div class="form-group">
       <label for="type">Candle type</label>
-      <input type="text" class="form-control" id="type" placeholder="Enter type (jar, pillar, taper, etc.)">
+      <select class="form-control" id="type">
+        {{#each candleTypes}}
+        <option>{{this}}</option>
+        {{/each}}
+      </select>
     </div>
     <!--div class="checkbox">
       <label>
