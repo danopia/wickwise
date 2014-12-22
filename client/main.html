@@ -8,22 +8,22 @@
 <body>
   <div class="container">
     {{#if currentUser}}
-    <div class="pull-right" style="padding: 10px;">
-      {{> loginButtons}}
-    </div>
+      <div class="pull-right" style="padding: 10px;">
+        {{> loginButtons}}
+      </div>
     {{/if}}
 
     <h1>Wickwise</h1>
 
     {{#if currentUser}}
-    <div class="row">
-      <div class="col-md-8">
-        {{> candleList}}
+      <div class="row">
+        <div class="col-md-8">
+          {{> candleList}}
+        </div>
+        <div class="col-md-4">
+          {{> addCandle}}
+        </div>
       </div>
-      <div class="col-md-4">
-        {{> addCandle}}
-      </div>
-    </div>
     {{/if}}
 
     {{#unless currentUser}}
