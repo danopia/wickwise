@@ -1,0 +1,101 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wickwise</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Wickwise</h1>
+
+    {{#if currentUser}}
+    <div class="row">
+      <div class="col-md-8">
+        <p>{{> loginButtons}}</p>
+
+        {{> candleList}}
+      </div>
+      <div class="col-md-4">
+        {{> addCandle}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#unless currentUser}}
+      <div class="jumbotron">
+        <h1>Keep a handle on your candles</h1>
+        <p>
+          Wisewick keeps a listing of your favorite candles.
+          You can track how long or how often you burn each one and discover
+          which candle will fit your current mood.
+        </p>
+        <p>{{> loginButtons}}</p>
+      </div>
+    {{/unless}}
+  </div>
+</body>
+
+<template name="candleList">
+  {{#each candles}}
+    {{> showCandle}}
+  {{/each}}
+  {{#unless hasCandles}}
+    <p>You don't have any candles added yet!</p>
+    <p>Add one now :)</p>
+  {{/unless}}
+</template>
+
+<template name="showCandle">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <dl>
+        <dt>Brand</dt>
+        <dd>{{brand}}</dd>
+        <dt>Scent</dt>
+        <dd>{{scent}}</dd>
+        <dt>Wax type</dt>
+        <dd>{{wax}}</dd>
+        <dt>Size</dt>
+        <dd>{{size}} oz</dd>
+        <dt>Candle type</dt>
+        <dd>{{type}}</dd>
+      </dl>
+    </div>
+  </div>
+</template>
+
+<template name="addCandle">
+  <h3>Add a candle</h3>
+  <form role="form">
+    <div class="form-group">
+      <label for="brand">Brand</label>
+      <input type="text" class="form-control" id="brand" placeholder="Enter brand">
+    </div>
+    <div class="form-group">
+      <label for="scent">Scent</label>
+      <input type="text" class="form-control" id="scent" placeholder="Enter scent">
+    </div>
+    <div class="form-group">
+      <label for="wax">Wax type</label>
+      <input type="text" class="form-control" id="wax" placeholder="Enter wax type (soy, beeswax, etc.)">
+    </div>
+    <div class="form-group">
+      <label for="size">Size</label>
+      <div class="input-group">
+        <input type="number" class="form-control" id="size" placeholder="Enter size in ounces">
+        <span class="input-group-addon">oz</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Candle type</label>
+      <input type="text" class="form-control" id="type" placeholder="Enter type (jar, pillar, taper, etc.)">
+    </div>
+    <!--div class="checkbox">
+      <label>
+        <input type="checkbox" id="unburned"> Unburned (new)
+      </label>
+    </div-->
+    <button type="submit" class="btn btn-default">Add</button>
+  </form>
+</template>
