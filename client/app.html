@@ -60,7 +60,12 @@
     </a>
     <div class="media-body">
       <h3 class="media-heading">{{scent}} <small>{{brand}}</small></h3>
-      <p>{{size}} oz {{wax}} {{type}} candle</p>
+      <p>
+        {{#if size}}
+          {{size}} oz
+        {{/if}}
+        {{wax}} {{type}} candle
+      </p>
     </div>
   </div>
 </template>
