@@ -4,3 +4,7 @@
   height: auto;
   padding: 3px 10px;
 }
+
+.editable-click:not(:hover) {
+  border-bottom: none;
+}
