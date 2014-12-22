@@ -2,7 +2,7 @@ Candles = new Meteor.Collection('candles');
 
 WaxTypes = [
   'Paraffin',
-  'Refined Paraffin',
+  'Blended Paraffin',
   'Beeswax',
   'Soy',
   'Palm',
