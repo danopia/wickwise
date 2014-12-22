@@ -24,16 +24,35 @@ Template.showCandle.events({
 });
 
 Template.showCandle.rendered = function () {
-  this.$('[data-model].editable').editable({
-    display: false,
-    success: function (response, newValue) {
-      var _id = $(this).closest('.candle').data('id');
-      var field = $(this).data('model');
+  var update = function (response, newValue) {
+    var _id = $(this).closest('.candle').data('id');
+    var field = $(this).data('model');
+    console.log(_id, field, newValue);
 
-      var data = {};
-      data[field] = newValue;
-      Candles.update(_id, { $set: data });
-    },
+    var data = {};
+    data[field] = newValue;
+    Candles.update(_id, { $set: data });
+  };
+
+  this.$('[data-type=text].editable, [data-type=number].editable').editable({
+    display: false,
+    success: update,
+  });
+
+  this.$('[data-model=wax].editable').editable({
+    display: false,
+    success: update,
+    source: WaxTypes.map(function (type) {
+      return { value: type, text: type };
+    }),
+  });
+
+  this.$('[data-model=type].editable').editable({
+    display: false,
+    success: update,
+    source: CandleTypes.map(function (type) {
+      return { value: type, text: type };
+    }),
   });
 };
 
