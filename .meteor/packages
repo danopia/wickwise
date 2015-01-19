@@ -10,6 +10,7 @@ insecure
 accounts-ui
 twbs:bootstrap
 accounts-google
+accounts-facebook
 force-ssl
 natestrauser:x-editable-bootstrap
 mizzao:bootboxjs
