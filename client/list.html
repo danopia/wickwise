@@ -13,8 +13,9 @@
 
 <template name="showCandle">
   <div class="candle media" data-id="{{_id}}">
-    <a class="media-left">
+    <a class="media-left" style="position: relative;" href>
       <img src="{{candleImg}}" alt="A {{type}} candle" width="128">
+      <div class="remove-btn hover">&times;</div>
     </a>
     <div class="media-body">
       <h3 class="media-heading">

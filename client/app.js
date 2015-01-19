@@ -21,6 +21,14 @@ Template.showCandle.events({
       burns: +event.target.value,
     }});
   },
+
+  'click .remove-btn': function () {
+    var that = this;
+    bootbox.confirm('Do you want to delete this candle from your list?', function () {
+      Candles.remove(that._id);
+    });
+    return false;
+  },
 });
 
 Template.showCandle.rendered = function () {

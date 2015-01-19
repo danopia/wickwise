@@ -8,3 +8,21 @@
 .editable-click:not(:hover) {
   border-bottom: none;
 }
+
+
+.hover {
+  display: none;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.5);
+  bottom: 1px;
+  left: 1px;
+  position: absolute;
+  border-radius: 0 5px 0 0;
+}
+.hover:hover {
+  background: rgba(255, 255, 255, 0.9);
+
+}
+.media-left:hover .hover {
+  display: block;
+}
